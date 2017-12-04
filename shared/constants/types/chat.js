@@ -389,7 +389,6 @@ export type _State = {
   teamCreationPending: boolean,
   teamJoinError: string,
   teamJoinSuccess: boolean,
-  tempPendingConversations: I.Map<ConversationIDKey, boolean>,
 }
 
 export type State = I.RecordOf<_State>

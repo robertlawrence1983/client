@@ -38,7 +38,6 @@ function _exitSearch({payload: {skipSelectPreviousConversation}}: ChatGen.ExitSe
     [
       Saga.put(SearchGen.createClearSearchResults({searchKey: 'chatSearch'})),
       Saga.put(SearchGen.createSetUserInputItems({searchKey: 'chatSearch', searchResults: []})),
-      Saga.put(ChatGen.createRemoveTempPendingConversations()),
       userInputItemIds.length === 0 && !skipSelectPreviousConversation
         ? Saga.put(ChatGen.createSelectConversation({conversationIDKey: previousConversation}))
         : null,
@@ -58,7 +57,7 @@ function* _updateTempSearchConversation(action: SearchGen.UserInputItemsUpdatedP
     return
   }
 
-  const actionsToPut = [Saga.put(ChatGen.createRemoveTempPendingConversations())]
+  const actionsToPut = []
   if (userInputItemIds.length) {
     actionsToPut.push(
       Saga.put(
