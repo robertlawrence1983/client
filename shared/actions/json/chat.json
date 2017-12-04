@@ -263,7 +263,6 @@
     "startConversation": {
       "users": "Array<string>",
       "forceImmediate?": "boolean",
-      "temporary?": "boolean",
       "forSearch?": "boolean"
     },
     "badgeAppForChat": {
